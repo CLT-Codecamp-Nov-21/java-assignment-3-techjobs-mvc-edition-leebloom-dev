@@ -27,5 +27,52 @@
         </div>
     </div>
 
+
+    <!--
+    This fragment template will loop through an array of jobs and display
+    a pre-structured table. Each row will have a category of the following:
+        1. ID
+        2. Name
+        3. Location
+        4. Position Type
+        5. Skills (Core Competency)
+    The jobs ArrayList is found in ListController.java in the controller method
+    called 'listJobsByColumnAndValue'.
+    -->
+    <th:block th:fragment="table-template">
+        <table class="job-listing" th:each="job : ${jobs}"> <!-- loop -->
+            <!-- ID -->
+            <tr>
+                <td>ID</td>
+                <td th:text="${job.id}"></td> <!-- Use Thymeleaf text replacer for job id -->
+            </tr>
+            <!-- Name -->
+            <tr>
+                <td>Name</td>
+                <td th:text="${job.name}"></td> <!-- Use Thymeleaf text replacer for job name -->
+            </tr>
+            <!-- Employer -->
+            <tr>
+                <td>Employer</td>
+                <td th:text="${job.employer}"></td>
+            </tr>
+            <!-- Location -->
+            <tr>
+                <td>Location</td>
+                <td th:text="${job.location}"></td> <!-- Use Thymeleaf text replacer for job location -->
+            </tr>
+            <!-- Position Type -->
+            <tr>
+                <td>Position Type</td>
+                <td th:text="${job.positionType}"></td> <!-- Use Thymeleaf text replacer for job position type -->
+            </tr>
+            <!-- Skill -->
+            <tr>
+                <td>Skill</td>
+                <td th:text="${job.coreCompetency}"></td> <!-- Use Thymeleaf text replacer for job core competency -->
+            </tr>
+        </table>
+    </th:block>
+
 </body>
 </html>
